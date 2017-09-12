@@ -1,0 +1,11 @@
+mov a,#00H
+mov r1,#03H
+mov r2,#03H
+loop:
+add a,r1
+djnz r2,loop
+exit:
+mov dptr,#5104h
+movx @dptr,a
+here:
+sjmp here

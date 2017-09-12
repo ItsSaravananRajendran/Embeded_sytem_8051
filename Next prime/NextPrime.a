@@ -1,0 +1,26 @@
+mov r4,#07
+mov a,r4
+add a,#1
+mov r7,a
+start:
+mov r6,#02h
+mov a,r7
+mov b,#02H
+div ab
+mov r5,a
+loop:
+mov b,r6
+mov a,r7
+div ab
+mov a,b
+cjne a,#00,cont
+inc r7
+sjmp start
+cont:
+inc r6
+djnz r5,loop
+mov a,r7
+mov dptr , #5106H
+movx @dptr,a
+here:
+sjmp here

@@ -1,0 +1,17 @@
+mov a,#0aH
+mov r1,#3H
+mov r2,#00H
+loop:
+subb a,r1
+jc exit
+inc r2
+sjmp loop
+exit:
+add a,r1
+mov dptr,#5100h
+movx @dptr,a
+inc dptr
+mov a,r2
+movx @dptr,a
+here:
+sjmp here

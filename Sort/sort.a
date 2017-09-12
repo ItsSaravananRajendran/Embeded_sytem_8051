@@ -1,0 +1,37 @@
+mov r0,#40H
+mov r7,#04h
+mov dptr,#5100H
+loadin:
+movx a,@dptr
+mov @r0,a
+inc dptr
+inc r0
+DJNz r7,loadin
+
+mov r7,#04H
+mov r1,#50H
+mov r0,#3FH
+check:
+inc r0
+mov a,@r0
+mov b,#05H
+div ab
+mov a,b
+cjne a,#00H,cond
+mov a,@r0
+mov @r1,a
+inc r1
+cond:
+djnz r7,check
+
+mov r7,#04H
+mov r0,#50H
+mov dptr,#5200H
+loadout:
+mov a,@r0
+movx @dptr,a
+inc dptr
+inc r0
+djnz r7,loadout
+here:
+sjmp here

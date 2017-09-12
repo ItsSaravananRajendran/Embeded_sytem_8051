@@ -1,0 +1,21 @@
+mov r1,00h
+mov r3,#0FH ; MULTIPLIER AND SHIFTER
+mov R7,#00H ; FINAL PRODUCT 
+mov 20H,#0FH
+MOV R6,#04H
+MOV A,#00H
+loop:
+JNB 00H,jump
+MOV A,R7
+ADD A,R3
+MOV R7,A
+jump:
+MOV A,20H
+RR A 
+MOV 20H,A
+MOV A,R3
+RL A
+MOV R3,A
+DJNZ R6,loop
+
+

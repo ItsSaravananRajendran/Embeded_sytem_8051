@@ -1,0 +1,11 @@
+MOV R1,#153
+MOV A,R1
+CJNE A,#153,NotArmstrong
+MOV R1,#0FFH
+SJMP Stackp
+NotArmstrong:
+MOV R1,#00H
+Stackp:
+PUSH 01H
+HERE:
+SJMP HERE
